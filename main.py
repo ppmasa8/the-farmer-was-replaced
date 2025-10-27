@@ -3,15 +3,14 @@ clear()
 pum_cnt = 0
 
 while True:
-	pum_cnt = 0
 	for i in range(get_world_size()):
 		for j in range(get_world_size()):
-			
 			# pumpkin
 			if i < 6 and j < 6:
 				if get_ground_type() != Grounds.Soil:
 					till()
 				if get_entity_type() == Entities.Dead_Pumpkin:
+					pum_cnt = 0
 					harvest()
 					plant(Entities.Pumpkin)
 					if get_water() < 0.5:
