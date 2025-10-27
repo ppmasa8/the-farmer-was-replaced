@@ -18,6 +18,7 @@ while True:
 				elif get_entity_type() == Entities.Pumpkin:
 					pum_cnt += 1
 					if pum_cnt == 36:
+						pum_cnt = 0
 						harvest()
 				else:
 					plant(Entities.Pumpkin)
