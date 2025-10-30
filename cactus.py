@@ -1,31 +1,33 @@
 clear()
+
+s = get_world_size()
 		
 def swap_cactus_x():
-	for col in range(get_world_size()):
-		flg = False
-		for row in range(get_world_size()):
-			if row != get_world_size() - 1  and measure() > measure(East):
+	for col in range(s):
+		f = False
+		for row in range(s):
+			if row != s - 1  and measure() > measure(East):
 				swap(East)
-				flg = True
+				f = True
 			move(East)
-		if not flg:
+		if not f:
 			break
 
 def swap_cactus_y():
-	for row in range(get_world_size()):
-		flg = False
-		for col in range(get_world_size()):
-			if col != get_world_size() - 1 and measure() > measure(North):
+	for row in range(s):
+		f = False
+		for col in range(s):
+			if col != s - 1 and measure() > measure(North):
 				swap(North)
-				flg = True
+				f = True
 			move(North)
-		if not flg:
+		if not f:
 			break
 		
 
 while True:
-	for _ in range(get_world_size()):
-		for _ in range(get_world_size()):
+	for _ in range(s):
+		for _ in range(s):
 			if get_ground_type() != Grounds.Soil:
 				till()
 			if get_entity_type() != Entities.Cactus:
@@ -34,11 +36,11 @@ while True:
 			move(North)
 		move(East)
 	
-	for _ in range(get_world_size()):
+	for _ in range(s):
 		swap_cactus_x()
 		move(North)
 		
-	for _ in range(get_world_size()):
+	for _ in range(s):
 		swap_cactus_y()
 		move(East)
 		
